@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Export Business - Langit Raya</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+    header {
+      background: url('https://images.unsplash.com/photo-1604908177093-2a4660b8b1b5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80') center/cover no-repeat;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    header h1 {
+      font-size: 48px;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 24px;
+    }
+    section {
+      padding: 50px 20px;
+      max-width: 800px;
+      margin: auto;
+    }
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+      margin-top: 20px;
+    }
+    input, select, textarea, button {
+      padding: 10px;
+      font-size: 16px;
+      width: 100%;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+    }
+    button {
+      background-color: #007bff;
+      color: white;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .whatsapp-button {
+      position: fixed;
+      bottom: 20px;
+      right: 20px;
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 30px;
+      text-decoration: none;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Langit Raya Exports</h1>
+  <p>Seafood | Furniture | Farming | Agriculture</p>
+</header>
+
+<section>
+  <h2>Get in Touch</h2>
+  <p>Looking for reliable export products from Indonesia? Contact us now!</p>
+
+  <form action="https://formspree.io/f/yourformid" method="POST">
+    <input type="text" name="name" placeholder="Your Name" required>
+    <input type="email" name="email" placeholder="Your Email" required>
+    <select name="product" required>
+      <option value="">Select Product</option>
+      <option value="Seafood">Seafood</option>
+      <option value="Furniture">Furniture</option>
+      <option value="Farming Product">Farming Product</option>
+      <option value="Agricultural Product">Agricultural Product</option>
+    </select>
+    <textarea name="message" placeholder="Tell us more..." rows="5" required></textarea>
+    <button type="submit">Send Inquiry</button>
+  </form>
+</section>
+
+<a class="whatsapp-button" href="https://wa.me/6285923462401?text=Hi%2C%20I%20want%20to%20export%20products.%20Please%20assist%20me." target="_blank">
+  💬
+</a>
+
+</body>
+</html>
