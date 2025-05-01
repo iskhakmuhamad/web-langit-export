@@ -1,143 +1,241 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/png" href="exora.png" />
-  <title>Exerco</title>
-  <style>
-    :root {
-      --sky-blue: #4DA6FF;
-      --navy-blue: #003366;
-      --white: #ffffff;
-      --gold: #FFD700;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/png" href="exora.png">
+    <title>Exora</title>
+    <style>
+        :root {
+            --sky-blue: #4DA6FF;
+            --navy-blue: #003366;
+            --white: #ffffff;
+            --gold: #FFD700;
+        }
 
-    body {
-      margin: 0;
-      font-family: Arial, sans-serif;
-      color: var(--navy-blue);
-      background-color: var(--white);
-    }
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            color: var(--navy-blue);
+            background-color: var(--white);
+            line-height: 1.6;
+        }
 
-    header {
-      background: var(--sky-blue);
-      color: var(--white);
-      padding: 100px 20px;
-      text-align: center;
-    }
+        header {
+            background-image: url('header-bg.jpg');
+            background-size: cover;
+            background-position: center;
+            color: var(--white);
+            padding: 120px 20px;
+            text-align: center;
+            position: relative;
+        }
 
-    nav {
-      background: var(--navy-blue);
-      padding: 15px 0;
-      text-align: center;
-    }
+        header::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 51, 102, 0.6);
+        }
 
-    nav a {
-      color: var(--white);
-      margin: 0 15px;
-      text-decoration: none;
-      font-weight: bold;
-    }
+        header > * {
+            position: relative;
+            z-index: 1;
+        }
 
-    section {
-      padding: 60px 20px;
-    }
+        header h1 {
+            font-size: 2.5em;
+            margin-bottom: 10px;
+        }
 
-    .container {
-      max-width: 960px;
-      margin: auto;
-    }
+        header p {
+            font-size: 1.2em;
+            margin-bottom: 20px;
+        }
 
-    .products {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 20px;
-    }
+        nav {
+            background: var(--navy-blue);
+            padding: 15px 0;
+            text-align: center;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+        }
 
-    .product-card {
-      flex: 1;
-      min-width: 250px;
-      background: var(--white);
-      border: 1px solid #ddd;
-      border-radius: 12px;
-      box-shadow: 0 2px 4px rgba(0,0,0,0.1);
-      padding: 20px;
-    }
+        nav a {
+            color: var(--white);
+            margin: 0 15px;
+            text-decoration: none;
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
 
-    .btn {
-      display: inline-block;
-      background: var(--navy-blue);
-      color: var(--white);
-      padding: 10px 20px;
-      border-radius: 8px;
-      text-decoration: none;
-      margin-top: 20px;
-    }
+        nav a:hover {
+            color: var(--sky-blue);
+        }
 
-    .btn.whatsapp {
-      background: #25D366;
-    }
+        section {
+            padding: 60px 20px;
+        }
 
-    footer {
-      background: var(--navy-blue);
-      color: var(--white);
-      text-align: center;
-      padding: 20px;
-    }
-  </style>
+        .container {
+            max-width: 960px;
+            margin: auto;
+        }
+
+        .products {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border: 1px solid #ddd;
+            border-radius: 12px;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+            padding: 25px;
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 8px 16px rgba(0,0,0,0.2);
+        }
+
+        .product-card h3 {
+            color: var(--navy-blue);
+            margin-top: 0;
+            margin-bottom: 10px;
+        }
+
+        .product-card p {
+            color: #555;
+            font-size: 0.95em;
+        }
+
+        .btn {
+            display: inline-block;
+            background: var(--navy-blue);
+            color: var(--white);
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            margin-top: 20px;
+            font-weight: bold;
+            transition: background-color 0.3s ease;
+        }
+
+        .btn:hover {
+            background-color: var(--sky-blue);
+        }
+
+        .btn.whatsapp {
+            background: #25D366;
+        }
+
+        .btn.whatsapp:hover {
+            background: #128C7E;
+        }
+
+        footer {
+            background: var(--navy-blue);
+            color: var(--white);
+            text-align: center;
+            padding: 30px;
+            font-size: 0.9em;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            header {
+                padding: 100px 20px;
+            }
+
+            header h1 {
+                font-size: 2em;
+            }
+
+            nav a {
+                margin: 0 10px;
+            }
+
+            .products {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <h1>Langit Raya Eksporindo</h1>
-    <!-- <h2>Born in Indonesia, made for world</h2> -->
-    <p>Exporting the Best of Indonesia: Seafood, Furniture, Agriculture</p>
-    <a href="#contact" class="btn">Get in Touch</a>
-  </header>
+    <header>
+        <h1>Exora</h1>
+        <p>Born in Indonesia, made for the world</p>
+        <a href="#contact" class="btn">Get in Touch</a>
+    </header>
 
-  <nav>
-    <a href="#products">Products</a>
-    <a href="#about">About</a>
-    <a href="#contact">Contact</a>
-  </nav>
+    <nav>
+        <a href="#products">Products</a>
+        <a href="#about">About</a>
+        <a href="#contact">Contact</a>
+    </nav>
 
-  <section id="products">
-    <div class="container">
-      <h2>Our Products</h2>
-      <div class="products">
-        <div class="product-card">
-          <h3>Seafood</h3>
-          <p>Exporting fresh shrimp, tuna, and more.</p>
+    <section id="products">
+        <div class="container">
+            <h2>Our Products</h2>
+            <div class="products">
+                <div class="product-card">
+                    <h3>Seafood</h3>
+                    <p>Exporting fresh shrimp, tuna, and a variety of other high-quality seafood sourced directly from Indonesian waters.</p>
+                </div>
+                <div class="product-card">
+                    <h3>Furniture</h3>
+                    <p>Handcrafted teak and rattan furniture, blending traditional Indonesian artistry with modern design for global markets.</p>
+                </div>
+                <div class="product-card">
+                    <h3>Agricultural Products</h3>
+                    <p>Premium Indonesian coffee beans, exotic spices, and other sought-after agricultural products, cultivated with care by local farmers.</p>
+                </div>
+            </div>
         </div>
-        <div class="product-card">
-          <h3>Furniture</h3>
-          <p>Teak and rattan furniture built to global standards.</p>
+    </section>
+
+    <section id="about">
+        <div class="container">
+            <h2>About Us</h2>
+            <p>Exora is a dedicated export company based in Indonesia, committed to bringing the archipelago's finest products to the international stage. With a focus on quality, sustainability, and ethical sourcing, we ensure our seafood is fresh, our furniture is durable and beautifully crafted, and our agricultural products meet the highest standards.</p>
+            <p>We work closely with local communities and producers, fostering mutually beneficial partnerships that contribute to Indonesia's economic growth and showcase its rich natural resources and skilled craftsmanship to the world.</p>
         </div>
-        <div class="product-card">
-          <h3>Agricultural Products</h3>
-          <p>Coffee, spices, and premium crops from Indonesian farmers.</p>
+    </section>
+
+    <section id="contact">
+        <div class="container">
+            <h2>Contact Us</h2>
+            <p>Ready to explore export opportunities with us? Our team is here to answer your inquiries and discuss how we can meet your specific needs.</p>
+            <a class="btn whatsapp" href="https://wa.me/6282235490564?text=I%20want%20to%20export%20products%20with%20Langit%20Raya%20Eksporindo" target="_blank">Message Us on WhatsApp</a>
+            <p>Alternatively, you can reach us via email at <a href="mailto:info@langitrayaexport.com">info@langitrayaexport.com</a>.</p>
         </div>
-      </div>
-    </div>
-  </section>
+    </section>
 
-  <section id="about">
-    <div class="container">
-      <h2>About Us</h2>
-      <p>Langit Raya Eksporindo is a trusted export company from Indonesia. We pride ourselves in delivering high-quality seafood, furniture, and agricultural products worldwide.</p>
-    </div>
-  </section>
+    <footer>
+        <div class="container">
+            <p>&copy; 2025 Exora. All rights reserved.</p>
+        </div>
+    </footer>
 
-  <section id="contact">
-    <div class="container">
-      <h2>Contact Us</h2>
-      <p>Want to start exporting with us?</p>
-      <a class="btn whatsapp" href="https://wa.me/6282235490564?text=I%20want%20to%20export%20products%20with%20Langit%20Raya%20Eksporindo" target="_blank">Message Us on WhatsApp</a>
-    </div>
-  </section>
+    <script>
+        // Basic scroll to section functionality (optional, for smoother navigation)
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
 
-  <footer>
-    <p>&copy; 2025 Langit Raya Eksporindo. All rights reserved.</p>
-  </footer>
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
 </body>
 </html>
